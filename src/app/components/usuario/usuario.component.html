@@ -1,0 +1,77 @@
+<h2 class="title">Agregar Usuario</h2>
+
+<div class="estilo">
+  <form (ngSubmit)="guardar()" [formGroup]="usuarioForm">
+    <div class="form-group">
+      <label>Nombre</label>
+      <input type="text" formControlName="nombre" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label>Apellido</label>
+      <input type="text" formControlName="apellido" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label>Tipo de documento</label>
+      <input type="text" formControlName="tipo_documento" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label>Documento de identificacion</label>
+      <input type="number" formControlName="documento_identificacion" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label>Estado</label>
+      <input type="text" formControlName="estado" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label>Sexo</label>
+      <input type="number" formControlName="sexo" class="form-control">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar</button>
+  </form>
+</div>
+
+<div class="estilo">
+  <p class="barra"></p>
+  <h3 class="title">Lista de Usuarios</h3>
+</div>
+
+<div class="estilo">
+  <table class="table table-striped">
+    <thead class="table-dark">
+      <tr>
+        <th>Id</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Tipo de documento</th>
+        <th>Nº Documento</th>
+        <th>Estado</th>
+        <th>Sexo</th>
+        <th>Editar</th>
+        <th>Eliminar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of usuarios">
+        <th>{{item.id}}</th>
+        <th>{{item.nombre}}</th>
+        <th>{{item.apellido}}</th>
+        <th>{{item.tipo_documento}}</th>
+        <th>{{item.documento_identificacion}}</th>
+        <th>{{item.estado}}</th>
+        <th>{{item.sexo}}</th>
+        <td>
+          <button type="button" class="btn btn-info" (click)="editar(item)">Editar</button>
+        </td>
+        <td>
+          <button type="button" class="btn btn-danger" (click)="eliminar(item)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
